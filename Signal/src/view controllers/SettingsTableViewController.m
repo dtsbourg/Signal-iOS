@@ -49,7 +49,7 @@ typedef enum {
     kSecuritySection,
 } kSection;
 
-@interface SettingsTableViewController ()
+@interface SettingsTableViewController () <SettingsTableViewCellDelegate>
 
 @end
 
@@ -97,6 +97,15 @@ typedef enum {
             return kStandardCellHeight;
             break;
     }
+}
+
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SettingsTableViewCell * cell = (SettingsTableViewCell*)[super tableView:tableView cellForRowAtIndexPath:indexPath];
+    
+    cell.delegate = self;
+    
+    return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,6 +210,14 @@ typedef enum {
                 break;
         }
     }
+}
+
+#pragma mark - SettingsTableViewCell delegate
+
+-(void)updateLoggingSetting:(BOOL)isLoggingEnabled
+{
+    SettingsTableViewCell *debugLogCell = (SettingsTableViewCell*)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:kSendDebugLogCellRow inSection:kSecuritySection]];
+    debugLogCell.userInteractionEnabled = isLoggingEnabled;
 }
 
 #pragma mark - Fingerprint Util

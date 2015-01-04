@@ -10,17 +10,24 @@
 
 #import "Environment.h"
 #import "PreferencesUtil.h"
+#import "DebugLogger.h"
 
 @implementation SettingsTableViewCell
 
 - (void)awakeFromNib {
 
-    if (self.toggle) {
+    if ([self.reuseIdentifier isEqualToString:@"enableDebugLogCell"]){
+        [self.toggle setOn:[Environment.preferences loggingIsEnabled]];
+        [self.toggle addTarget:self action:@selector(toggleLogging:) forControlEvents:UIControlEventTouchUpInside];
+        [self.delegate updateLoggingSetting:self.toggle.isOn];
+    }
+    
+    else if ([self.reuseIdentifier isEqualToString:@"enableScreenSecurity"]) {
         [self.toggle setOn:[Environment.preferences screenSecurityIsEnabled]];
         [self.toggle addTarget:self action:@selector(toggleSetting:) forControlEvents:UIControlEventValueChanged];
     }
     
-    if ([self.reuseIdentifier isEqualToString:@"imageUploadQuality"]) {
+    else if ([self.reuseIdentifier isEqualToString:@"imageUploadQuality"]) {
         [self updateImageQualityLabel];
     }
 }
@@ -35,6 +42,22 @@
 {
     if ([self.reuseIdentifier isEqualToString:@"enableScreenSecurity"]) {
         [Environment.preferences setScreenSecurity:self.toggle.isOn];
+    }
+}
+
+-(void)toggleLogging:(id)sender
+{
+    if ([self.reuseIdentifier isEqualToString:@"enableDebugLogCell"]) {
+
+        if (!self.toggle.isOn) {
+            [DebugLogger.sharedInstance disableFileLogging];
+            [DebugLogger.sharedInstance wipeLogs];
+        } else {
+            [DebugLogger.sharedInstance enableFileLogging];
+        }
+        
+        [Environment.preferences setLoggingEnabled:self.toggle.isOn];
+        [self.delegate updateLoggingSetting:self.toggle.isOn];
     }
 }
 

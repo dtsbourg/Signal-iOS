@@ -2818,6 +2818,7 @@
 				ORGANIZATIONNAME = "Open Whisper Systems";
 				TargetAttributes = {
 					D221A088169C9E5E00537ABF = {
+						DevelopmentTeam = DRXTS3ZU8M;
 						SystemCapabilities = {
 							com.apple.DataProtection = {
 								enabled = 1;
@@ -3621,7 +3622,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_CFLAGS = "-fobjc-arc-exceptions";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "87a69a1c-864f-4e05-8d48-b9268ace6179";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3673,7 +3674,7 @@
 				LLVM_LTO = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = Signal;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "87a69a1c-864f-4e05-8d48-b9268ace6179";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				TEST_AFTER_BUILD = YES;
@@ -3792,7 +3793,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fobjc-arc-exceptions";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "87a69a1c-864f-4e05-8d48-b9268ace6179";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3857,7 +3858,7 @@
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-fobjc-arc-exceptions",
 				);
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "87a69a1c-864f-4e05-8d48-b9268ace6179";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -3908,7 +3909,7 @@
 				LLVM_LTO = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = Signal;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "87a69a1c-864f-4e05-8d48-b9268ace6179";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				TEST_AFTER_BUILD = YES;
@@ -3962,7 +3963,7 @@
 				LLVM_LTO = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = Signal;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "87a69a1c-864f-4e05-8d48-b9268ace6179";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				TEST_AFTER_BUILD = YES;

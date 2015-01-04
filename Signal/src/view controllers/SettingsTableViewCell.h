@@ -8,12 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SettingsTableViewCellDelegate <NSObject>
+
+- (void)updateLoggingSetting:(BOOL)isLoggingEnabled;
+
+@end
+
 @interface SettingsTableViewCell : UITableViewCell
 
 -(void)updateImageQualityLabel;
 
 //Optionals
 @property(nonatomic, strong) IBOutlet UISwitch* toggle;
-@property(nonatomic,strong) IBOutlet UILabel* detailLabel;
+@property(nonatomic, strong) IBOutlet UILabel* detailLabel;
+
+@property(nonatomic, strong) id<SettingsTableViewCellDelegate>delegate;
 
 @end
