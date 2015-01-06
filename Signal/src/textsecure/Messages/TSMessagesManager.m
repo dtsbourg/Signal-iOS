@@ -342,10 +342,11 @@
     switch (setting) {
         case NotificationNoNameNoPreview:
             return @"New message";
-            break;
         case NotificationNamePreview:
             if (message.body) {
                 return [NSString stringWithFormat:@"%@ : %@", name, message.body];
+            } else {
+                return @"New Message";
             }
         case NotificationNameNoPreview:
             return [NSString stringWithFormat:@"New message from %@", name];
